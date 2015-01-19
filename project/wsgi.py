@@ -11,7 +11,8 @@ import os
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings.common")
 
 from django.core.wsgi import get_wsgi_application
-_application = get_wsgi_application()
+from whitenoise.django import DjangoWhiteNoise
+_application = DjangoWhiteNoise(get_wsgi_application())
 
 env_variables_to_pass = ['SECRET_KEY', ]
 def application(environ, start_response):
