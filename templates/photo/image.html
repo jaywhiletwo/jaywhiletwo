@@ -7,11 +7,13 @@ Photos
 
 {% block menu %}
   <ul class="nav nav-sidebar">
-    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-    <li><a href="#">Reports</a></li>
-    <li><a href="#">Analytics</a></li>
-    <li><a href="#">Export</a></li>
+      {% for gallery in galleries %}
+      <li><a href="#">{{ gallery.display_name }}</a></li>
+      {% endfor %}
   </ul>
+    <!--
+    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+    -->
 {% endblock %}
 
 {% block content %}
