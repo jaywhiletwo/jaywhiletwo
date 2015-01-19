@@ -26,7 +26,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.jaywhiletwo.com', ]
 
 
 # Application definition
@@ -85,6 +85,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/stc/'
 
 TEMPLATE_DIRS = (SITE_ROOT + "/templates", )
