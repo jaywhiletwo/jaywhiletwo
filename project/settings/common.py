@@ -41,6 +41,7 @@ INSTALLED_APPS = (
 
     'blog',
     'home',
+    'photo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -89,7 +90,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_ROOT = '/home/jlee/Pictures/'
+STATICFILES_DIRS = ('/home/jlee/Pictures/', )
+STATIC_ROOT = '%s/assets/' % BASE_DIR
 STATIC_URL = '/stc/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 

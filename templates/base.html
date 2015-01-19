@@ -6,31 +6,12 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>jaywhiletwo: {% block title %}Home of stuff{% endblock %}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'base.css' %}">
 
-    <style type=text/css>
-    html {
-        height: 100%;
-        overflow-y: scroll;
-    }
-
-    body {
-        background: url('{% static "Lee-226.jpg" %}') no-repeat fixed center;
-        opacity: 0.9;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        background-size: cover;
-        -o-background-size: cover;
-        height: 90%;
-    }
-
-    .j-main{
-        background-color: #C3CFAB;
-        height: 90%;
-    }
-    </style>
 </head>
 <body>
 
+<!-- nav header -->
 <nav class="navbar navbar-default">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,26 +22,29 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="{% url 'blog:list' %}">Blog  <span class="sr-only">(current)</span></a></li>
-        <li><a href="/vacation/launch">Widgets (vacation)</a></li>
-        <li><a href="/vacation/gallery">Photos (vacation)</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Log In <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Coming soon!</a></li>
-          </ul>
-        </li>
+          <li><a href="{% url 'photo:image_set' %}">Photos (new!)</a></li>
+        <li><a href="{% url 'blog:blog' %}">Blog  <span class="sr-only">(current)</span></a></li>
+        <li><a href="/vacation/launch">Widgets (legacy)</a></li>
+        <li><a href="/vacation/gallery">Photos (legacy)</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-</div>
 
-{% block content %}
-Content goes here
-{% endblock %}
+
+<div class="container" style="height: 100%">
+    {% block main %}
+        <div class="col-sm-2 col-md-1 j-nav sidebar-offcanvas">
+            {% block menu %}
+            {% endblock menu %}
+        </div>
+        <div class="col-sm-10 col-md-11 main pull-right j-main">
+            {% block content %}
+            {% endblock content %}
+        </div>
+
+    {% endblock %}
+</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>

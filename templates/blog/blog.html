@@ -4,9 +4,19 @@ Blogs
 {% endblock %}
 
 
+{% block menu %}
+  <ul class="nav nav-sidebar">
+      {% for p in posts %}
+      <li><a href="#">{{ p.title }}</a></li>
+      {% endfor %}
+  </ul>
+    <!--
+    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+    -->
+{% endblock %}
+
+
 {% block content %}
-<div class="container j-main">
-{% for post in posts %}
     <h3>
         {{ post.title }}
     </h3>
@@ -16,12 +26,7 @@ Blogs
         </small>
     {% endif %}
     <p>
-        {{ post.summary }}
+        {{ post.body }}
     </p>
-{% empty %}
-    <h3>
-        No posts found.
-    </h3>
-{% endfor %}
 </div>
 {% endblock %}
