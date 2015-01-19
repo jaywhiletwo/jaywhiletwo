@@ -9,8 +9,7 @@ urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'jaywhiletwo.views.home', name='home'),
 
-    url(r'^$', include(home_urls, namespace="home", )),
     url(r'^blog/', include(blog_urls, namespace="blog", )),
     url(r'^admin/', include(admin.site.urls)),
-
+    url(r'', include(home_urls, namespace="home", )),
 )
