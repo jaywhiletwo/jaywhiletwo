@@ -5,7 +5,8 @@ TEMPLATE_DEBUG = DEBUG
 
 # Make this unique, and don't share it with anybody.
 import os
-SECRET_KEY = os.environ['SECRET_KEY']
+#SECRET_KEY = os.environ['SECRET_KEY']
+SECRET_KEY = "as@3oi2rF@#jf32l32l*fd"
 
 
 DATABASES = {
