@@ -95,4 +95,6 @@ STATIC_ROOT = '%s/assets/' % BASE_DIR
 STATIC_URL = '/stc/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
+LOCAL_RESOURCE = '/home/jlee/Pictures/'
+
 TEMPLATE_DIRS = (SITE_ROOT + "/templates", )

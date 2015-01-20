@@ -8,7 +8,7 @@ Photos
 {% block menu %}
   <ul class="nav nav-sidebar">
       {% for gallery in galleries %}
-      <li><a href="#">{{ gallery.display_name }}</a></li>
+      <li><a href="{% url 'photo:image_set' gallery.dir_name %}">{{ gallery.display_name }}</a></li>
       {% endfor %}
   </ul>
     <!--
@@ -17,7 +17,7 @@ Photos
 {% endblock %}
 
 {% block content %}
-<h3>
-Pictures here.
-</h3>
+{% for image in images %}
+<img class="j-photo" src="{{ image.tn_src }}" width=100px>
+{% endfor %}
 {% endblock %}

@@ -5,13 +5,12 @@ TEMPLATE_DEBUG = DEBUG
 
 # Make this unique, and don't share it with anybody.
 import os
-#SECRET_KEY = os.environ['SECRET_KEY']
-SECRET_KEY = '1324flkdsjfls32f'
+SECRET_KEY = os.environ['SECRET_KEY']
 
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'ENGINE': 'django.db.backends.mysql',  # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'jaywhiletwo',                      # Or path to database file if using sqlite3.
         'USER': 'root',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
@@ -53,3 +52,10 @@ LOGGING = {
         },
     }
 }
+
+STATICFILES_DIRS = ()
+STATIC_ROOT = '%s/assets/' % BASE_DIR
+STATIC_URL = '/stc/'
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+
+LOCAL_RESOURCE = '/home/jlee/Backup/Pictures/'

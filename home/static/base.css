@@ -5,12 +5,35 @@ html {
 
 body {
     background: url('Lee-226.jpg') no-repeat fixed center;
-    opacity: 0.9;
+    opacity: 1;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
     height: 100%;
+}
+
+.j-topnav {
+    background-color: rgb(61, 91, 59);
+    background-color: rgba(61, 91, 59, 0.8);
+    border: 0;
+}
+
+.j-topnav a:link {
+    color: #FFFFFF;
+}
+
+.j-topnav a:visited {
+    color: #FFFFFF;
+}
+
+
+.j-topnav li a:link {
+    color: #FFFFFF;
+}
+
+.j-topnav li a:visited {
+    color: #FFFFFF;
 }
 
 .j-nav {
@@ -43,4 +66,8 @@ body {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
+}
+
+.j-photo {
+    opacity: 1;
 }
