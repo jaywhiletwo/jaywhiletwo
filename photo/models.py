@@ -15,8 +15,8 @@ class Image(models.Model):
 
     @property
     def tn_src(self):
-        return "/stc/%s/tn/%s.%s" % (self.gallery.dir_name, self.filename, self.extension)
+        return "/static/%s/tn/%s.%s" % (self.gallery.dir_name, self.filename, self.extension)
 
     @property
     def src(self):
-        return "/stc/%s/%s.%s" % (self.gallery.dir_name, self.filename, self.extension)
+        return "/static/%s/%s.%s" % (self.gallery.dir_name, self.filename, self.extension)

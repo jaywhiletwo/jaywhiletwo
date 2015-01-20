@@ -92,7 +92,7 @@ USE_TZ = True
 
 STATICFILES_DIRS = ('/home/jlee/Pictures/', )
 STATIC_ROOT = '%s/assets/' % BASE_DIR
-STATIC_URL = '/stc/'
+STATIC_URL = '/static/'
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 LOCAL_RESOURCE = '/home/jlee/Pictures/'
