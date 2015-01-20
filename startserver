@@ -1,4 +1,7 @@
 #!/bin/bash
 
-sudo uwsgi --stop /tmp/jaywhiletwo-master.pid 2>/dev/null
+sudo -u jaywhiletwo uwsgi --reload /tmp/jaywhiletwo-master.pid
+if [[ $? -eq 0 ]]; then
+    exit 0
+fi
 sudo -u jaywhiletwo uwsgi --ini /home/jlee/Projects/jaywhiletwo/project/uwsgi.ini
