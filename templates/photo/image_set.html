@@ -18,6 +18,39 @@ Photos
 
 {% block content %}
 {% for image in images %}
-<img class="j-photo" src="{{ image.tn_src }}" width=100px>
+<a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
+        <img class="j-photo" src="{{ image.tn_src }}" width=100px>
+    </a>
 {% endfor %}
+
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <img class="modal-photo" width=100% id="modalImage">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+<script type=text/javascript>
+$('#imageModal').on('show.bs.modal', function (event) {
+  var image = $(event.relatedTarget);
+  var image_src = image.data('src');
+
+  var modal = $(this);
+  modal.find('img').attr("src", image_src);
+});
+
+$('#imageModal').on('shown.bs.modal', function (event) {
+    $('#imageModal').animate({ 
+      scrollTop: $("#modalImage").offset().top - 200
+    }, 'slow');
+});
+</script>
 {% endblock %}
