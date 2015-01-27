@@ -4,6 +4,6 @@ from .views import image_set
 
 
 urlpatterns = patterns('',
-    url(r'list/(?P<gallery_slug>[\w\d]+)', image_set, name='image_set', ),
+    url(r'list/(?P<gallery_slug>[-_\w\d]+)', image_set, name='image_set', ),
     url(r'list', image_set, name='image_set', ),
 )
