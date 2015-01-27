@@ -2,3 +2,4 @@
 *.sqlite3
 *.sw*
 project/assets/*
+bower_components/

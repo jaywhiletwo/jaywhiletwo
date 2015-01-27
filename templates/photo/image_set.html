@@ -19,7 +19,7 @@ Photos
 
 {% block content %}
 
-<div class="pictures">
+<div class="pictures js-masonry">
 {% for image in images %}
     <a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
             <img class="j-photo" src="{{ image.tn_src }}" width=100px>
@@ -74,4 +74,5 @@ $('#imageModal').on('shown.bs.modal', function (event) {
     }, 'slow');
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
 {% endblock %}
