@@ -16,13 +16,34 @@ Photos
     -->
 {% endblock %}
 
-{% block content %}
-{% for image in images %}
-<a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
-        <img class="j-photo" src="{{ image.tn_src }}" width=100px>
-    </a>
-{% endfor %}
 
+{% block content %}
+
+<div class="pictures">
+{% for image in images %}
+    <a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
+            <img class="j-photo" src="{{ image.tn_src }}" width=100px>
+        </a>
+    {% endfor %}
+</div>
+
+<div class="pagination">
+    <span class="step-links">
+        {% if images.has_previous %}
+            <a href="?page={{ images.previous_page_number }}">Previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ images.number }} of {{ images.paginator.num_pages }}.
+        </span>
+
+        {% if images.has_next %}
+            <a href="?page={{ images.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div>
+
+<!-- IMAGE MODAL -->
 <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">

@@ -62,6 +62,7 @@ body {
 .j-main {
     background-color: #C3CFAB;
     height: 100%;
+    text-align: center;
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -69,4 +70,14 @@ body {
 
 .j-photo {
     opacity: 1;
+}
+
+.pictures {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.pagination {
+    width: 50%;
+    margin: 0 auto;
 }
