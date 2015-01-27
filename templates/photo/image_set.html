@@ -19,10 +19,10 @@ Photos
 
 {% block content %}
 
-<div class="pictures js-masonry" data-masonry-options='{ "columnWidth: 200", "itemSelector": ".j-photo" }'>
+<div class="pictures js-masonry" data-masonry-options='{ "itemSelector": ".j-photo", "gutter": 1 }'>
 {% for image in images %}
     <a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
-            <img class="j-photo" src="{{ image.tn_src }}" width=100px>
+            <img class="j-photo" src="{{ image.tn_src }}">
         </a>
     {% endfor %}
 </div>
