@@ -19,7 +19,7 @@ Photos
 
 {% block content %}
 
-<div class="pictures js-masonry" data-masonry-options='{ "itemSelector": ".j-photo", "gutter": 1 }'>
+<div class="pictures" >
 {% for image in images %}
     <a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
             <img class="j-photo" src="{{ image.tn_src }}">
@@ -59,8 +59,16 @@ Photos
 {% endblock %}
 
 {% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
 <script type=text/javascript>
-$('#imageModal').on('show.bs.modal', function (event) {
+$('document').ready(function masonryF() {
+    $('.pictures').masonry({
+        itemSelector: ".j-photo",
+        gutter: 1
+    });
+});
+
+$('#imageModal').on('show.bs.modal', function showModalF(event) {
   var image = $(event.relatedTarget);
   var image_src = image.data('src');
 
@@ -68,11 +76,10 @@ $('#imageModal').on('show.bs.modal', function (event) {
   modal.find('img').attr("src", image_src);
 });
 
-$('#imageModal').on('shown.bs.modal', function (event) {
+$('#imageModal').on('shown.bs.modal', function shownModalF(event) {
     $('#imageModal').animate({ 
       scrollTop: $("#modalImage").offset().top - 200
     }, 'slow');
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.2.2/masonry.pkgd.min.js"></script>
 {% endblock %}
