@@ -12,6 +12,7 @@ class Image(models.Model):
     filename = models.CharField(max_length=255)
     extension = models.CharField(max_length=8)
     gallery = models.ForeignKey(Gallery)
+    deleted = models.BooleanField(default=False)
 
     @property
     def tn_src(self):

@@ -11,17 +11,15 @@ Photos
       <li><a href="{% url 'photo:image_set' gallery.dir_name %}">{{ gallery.display_name }}</a></li>
       {% endfor %}
   </ul>
-    <!--
-    <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-    -->
 {% endblock %}
 
 
 {% block content %}
+<span class="label label-warning">{{ message }}</span>
 
 <div class="pictures" >
 {% for image in images %}
-    <a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-src="{{ image.src }}">
+<a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-id="{{ image.id }}" data-src="{{ image.src }}">
             <img class="j-photo" src="{{ image.tn_src }}">
         </a>
     {% endfor %}
@@ -51,6 +49,12 @@ Photos
         <img class="modal-photo" width=100% id="modalImage">
       </div>
       <div class="modal-footer">
+          <form method=post>
+              {% csrf_token %}
+              <input type=text name="delete_code" placeholder="delete code"></input>
+              <input type=hidden id="delete" name="delete_image"></input>
+              <input type="submit" class="btn btn-danger" value="Delete"></input>
+          </form>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -71,9 +75,11 @@ $(window).load(function masonryF() {
 $('#imageModal').on('show.bs.modal', function showModalF(event) {
   var image = $(event.relatedTarget);
   var image_src = image.data('src');
+  var image_id = image.data('id');
 
   var modal = $(this);
   modal.find('img').attr("src", image_src);
+  modal.find('input#delete').attr("value", image_id);
 });
 
 $('#imageModal').on('shown.bs.modal', function shownModalF(event) {
