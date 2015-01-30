@@ -17,14 +17,6 @@ Photos
 {% block content %}
 <span class="label label-warning">{{ message }}</span>
 
-<div class="pictures" >
-{% for image in images %}
-<a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-id="{{ image.id }}" data-src="{{ image.src }}">
-            <img class="j-photo" src="{{ image.tn_src }}">
-        </a>
-    {% endfor %}
-</div>
-
 <div class="pagination">
     <span class="step-links">
         {% if images.has_previous %}
@@ -39,6 +31,14 @@ Photos
             <a href="?page={{ images.next_page_number }}">next</a>
         {% endif %}
     </span>
+</div>
+
+<div class="pictures" >
+{% for image in images %}
+<a class="image-link" href="#modalImage" data-toggle="modal" data-target="#imageModal" data-id="{{ image.id }}" data-src="{{ image.src }}">
+            <img class="j-photo" src="{{ image.tn_src }}">
+        </a>
+    {% endfor %}
 </div>
 
 <!-- IMAGE MODAL -->
