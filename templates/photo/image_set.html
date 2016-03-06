@@ -78,6 +78,11 @@ $('#imageModal').on('show.bs.modal', function showModalF(event) {
   var image_id = image.data('id');
 
   var modal = $(this);
+  modal.find('modal-body').css({
+      width: 'auto';
+      height: 'auto';
+      max-height: 100%;
+  });
   modal.find('img').attr("src", image_src);
   modal.find('input#delete').attr("value", image_id);
 });

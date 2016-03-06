@@ -98,3 +98,6 @@ STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 LOCAL_RESOURCE = '/home/jlee/Pictures/'
 
 TEMPLATE_DIRS = (SITE_ROOT + "/templates", )
+
+
+SESSION_COOKIE_SECURE = True
